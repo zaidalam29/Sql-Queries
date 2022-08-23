@@ -1,0 +1,28 @@
+//Max Salary
+
+select * from salary where salary=(select Max(salary) from salary);
+
+//Min Salary
+
+select * from salary where salary=(select Min(salary) from salary);
+
+//Only Max Salary
+
+select Max(salary) from salary;
+
+//Second Highest Salary
+
+1. select * from salary group by salary order by salary desc limit 1,1;
+2. SELECT name, MAX(salary) AS salary FROM salary WHERE salary <> (SELECT MAX(salary) FROM salary);
+
+
+//Third Largest Salary
+
+SELECT name, MAX(salary) AS salary FROM salary WHERE salary < (SELECT MAX(salary) FROM salary WHERE salary < (SELECT MAX(salary) FROM salary) );
+
+//Fourth Highest Salary
+
+SELECT * FROM salary WHERE salary= (SELECT DISTINCT(salary) FROM salary ORDER BY salary LIMIT 3,1);
+
+
+
